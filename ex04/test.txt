@@ -1,0 +1,2 @@
+hey this is the initial text that we copy to the file2 
+and we will replace the word text with new_word
