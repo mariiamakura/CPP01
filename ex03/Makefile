@@ -1,19 +1,28 @@
-NAME = zombie_horde
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mparasku <mparasku@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/09/01 15:56:32 by mparasku          #+#    #+#              #
+#    Updated: 2023/09/01 16:06:12 by mparasku         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME = weapon
+FLAG = -std=c++98
 
-OBJS = $(SRCS:.cpp=.o)
+SRC = main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
+OBJ = $(SRC:.cpp=.o)
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJS) $(SRCS)
-	c++ $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJ) $(SRC)
+	c++ -Wall -Wextra -Werror $(FLAG) $(OBJ) -o $(NAME) 
 
-clean : 
-	rm -f $(OBJS)
+clean:
+	@rm -rf $(OBJ)
 
-fclean : clean 
-	rm -f $(NAME)
-
-re : fclean all
+fclean: clean
+	@rm -fr $(NAME)
